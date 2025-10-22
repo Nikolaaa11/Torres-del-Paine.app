@@ -323,7 +323,7 @@ const TorresPaineCompleteApp = () => {
 
   // Interactive Map Component
   const InteractiveMap = () => React.createElement('div', {
-    className: "relative h-96 bg-gradient-to-br from-green-700 via-blue-700 to-purple-700 rounded-xl overflow-hidden border border-white/20"
+    className: "relative h-64 sm:h-80 md:h-96 bg-gradient-to-br from-green-700 via-blue-700 to-purple-700 rounded-xl overflow-hidden border border-white/20 map-container"
   }, [
     React.createElement('div', { 
       key: 'overlay',
@@ -385,15 +385,15 @@ const TorresPaineCompleteApp = () => {
         key: day.day,
         onClick: () => setCurrentDay(day.day),
         className: `absolute transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-          currentDay === day.day 
-            ? 'scale-125 z-20' 
-            : 'hover:scale-110 z-10'
+          currentDay === day.day
+            ? 'scale-110 sm:scale-125 z-20'
+            : 'hover:scale-105 sm:hover:scale-110 z-10'
         }`,
         style: { left: positions[index].x, top: positions[index].y }
       }, [
         React.createElement('div', {
           key: 'day-circle',
-          className: `w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
+          className: `w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 flex items-center justify-center text-xs font-bold ${
             currentDay === day.day
               ? 'bg-red-500 border-red-300 text-white shadow-lg'
               : 'bg-white/80 border-white text-gray-800 hover:bg-white'
@@ -401,7 +401,7 @@ const TorresPaineCompleteApp = () => {
         }, day.day),
         React.createElement('div', {
           key: 'day-label',
-          className: `mt-1 text-xs font-medium text-center px-2 py-1 rounded ${
+          className: `mt-1 text-[10px] sm:text-xs font-medium text-center px-1.5 sm:px-2 py-0.5 sm:py-1 rounded whitespace-nowrap ${
             currentDay === day.day
               ? 'bg-red-500/90 text-white'
               : 'bg-black/60 text-white'
@@ -427,11 +427,11 @@ const TorresPaineCompleteApp = () => {
     const dayData = circuitDays[day - 1];
     
     return React.createElement('div', {
-      className: "bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+      className: "bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10"
     }, [
       React.createElement('div', {
         key: 'header',
-        className: "flex justify-between items-start mb-4"
+        className: "flex flex-col sm:flex-row justify-between items-start mb-4 gap-3"
       }, [
         React.createElement('div', { key: 'title-section' }, [
           React.createElement('h3', {
@@ -477,7 +477,7 @@ const TorresPaineCompleteApp = () => {
       
       React.createElement('div', {
         key: 'content',
-        className: "grid grid-cols-1 md:grid-cols-3 gap-6"
+        className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
       }, [
         React.createElement('div', { key: 'services' }, [
           React.createElement('h4', {
@@ -562,11 +562,11 @@ const TorresPaineCompleteApp = () => {
     return React.createElement('div', {
       className: "space-y-6"
     }, React.createElement('div', {
-      className: "bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+      className: "bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10"
     }, [
       React.createElement('div', {
         key: 'phase-header',
-        className: "flex justify-between items-center mb-6"
+        className: "flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4"
       }, [
         React.createElement('div', { key: 'phase-info' }, [
           React.createElement('h2', {
@@ -614,11 +614,11 @@ const TorresPaineCompleteApp = () => {
       
       React.createElement('div', {
         key: 'tasks-grid',
-        className: "grid grid-cols-1 md:grid-cols-2 gap-6"
+        className: "grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
       }, currentPhase.tasks.map((taskGroup, index) =>
         React.createElement('div', {
           key: index,
-          className: "bg-white/10 rounded-xl p-4"
+          className: "bg-white/10 rounded-xl p-3 sm:p-4"
         }, [
           React.createElement('h3', {
             key: 'task-category',
@@ -673,16 +673,16 @@ const TorresPaineCompleteApp = () => {
   const GearListView = () => React.createElement('div', {
     className: "space-y-6"
   }, React.createElement('div', {
-    className: "bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+    className: "bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10"
   }, [
     React.createElement('h2', {
       key: 'gear-title',
-      className: "text-2xl font-bold text-white mb-6"
+      className: "text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6"
     }, '📋 Lista Completa de Equipamiento'),
-    
+
     React.createElement('div', {
       key: 'gear-grid',
-      className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
     }, Object.entries(gearList).map(([category, items]) =>
       React.createElement('div', {
         key: category,
@@ -777,16 +777,16 @@ const TorresPaineCompleteApp = () => {
   const BudgetCalculator = () => React.createElement('div', {
     className: "space-y-6"
   }, React.createElement('div', {
-    className: "bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+    className: "bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10"
   }, [
     React.createElement('h2', {
       key: 'budget-title',
-      className: "text-2xl font-bold text-white mb-6"
+      className: "text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6"
     }, '💰 Calculadora de Presupuesto Detallada'),
-    
+
     React.createElement('div', {
       key: 'budget-levels',
-      className: "grid grid-cols-1 lg:grid-cols-3 gap-6"
+      className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
     }, Object.entries(budgetBreakdown).map(([level, costs]) =>
       React.createElement('div', {
         key: level,
@@ -884,16 +884,16 @@ const TorresPaineCompleteApp = () => {
   const MenuView = () => React.createElement('div', {
     className: "space-y-6"
   }, React.createElement('div', {
-    className: "bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+    className: "bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10"
   }, [
     React.createElement('h2', {
       key: 'menu-title',
-      className: "text-2xl font-bold text-white mb-6"
+      className: "text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6"
     }, '🍽️ Menú Diario Completo'),
-    
+
     React.createElement('div', {
       key: 'menu-grid',
-      className: "grid grid-cols-1 md:grid-cols-2 gap-6"
+      className: "grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
     }, Object.entries(dailyMenu).map(([period, menu]) =>
       React.createElement('div', {
         key: period,
@@ -1043,7 +1043,7 @@ const TorresPaineCompleteApp = () => {
       key: 'emergency-modal',
       className: "fixed inset-0 z-50 bg-red-900/95 backdrop-blur-sm flex items-center justify-center p-4"
     }, React.createElement('div', {
-      className: "bg-red-500 rounded-2xl p-8 max-w-md w-full text-center border-2 border-red-400"
+      className: "bg-red-500 rounded-2xl p-6 sm:p-8 max-w-md w-full text-center border-2 border-red-400"
     }, [
       React.createElement(AlertTriangle, {
         key: 'emergency-icon',
@@ -1103,9 +1103,9 @@ const TorresPaineCompleteApp = () => {
     // Navigation
     React.createElement('nav', {
       key: 'navigation',
-      className: "fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-xl border-t border-white/10 z-30"
+      className: "fixed bottom-0 left-0 right-0 bg-black/80 backdrop-blur-xl border-t border-white/10 z-30 safe-area-bottom"
     }, React.createElement('div', {
-      className: "flex justify-around items-center py-2"
+      className: "flex justify-around items-center py-1 sm:py-2 px-1"
     }, [
       { id: 'dashboard', icon: Home, label: 'Inicio' },
       { id: 'map', icon: Map, label: 'Mapa' },
@@ -1120,19 +1120,19 @@ const TorresPaineCompleteApp = () => {
           setActiveView(item.id);
           if (window.hapticFeedback) window.hapticFeedback('light');
         },
-        className: `flex flex-col items-center space-y-1 p-2 rounded-lg transition-all duration-300 ${
-          activeView === item.id 
-            ? 'text-blue-400 bg-blue-500/20' 
+        className: `flex flex-col items-center space-y-0.5 sm:space-y-1 p-1.5 sm:p-2 rounded-lg transition-all duration-300 ${
+          activeView === item.id
+            ? 'text-blue-400 bg-blue-500/20'
             : 'text-gray-400 hover:text-white'
         }`
       }, [
         React.createElement(item.icon, {
           key: 'nav-icon',
-          className: "w-5 h-5"
+          className: "w-5 h-5 sm:w-6 sm:h-6"
         }),
         React.createElement('span', {
           key: 'nav-label',
-          className: "text-xs"
+          className: "text-[10px] sm:text-xs"
         }, item.label)
       ])
     ))),
@@ -1140,7 +1140,7 @@ const TorresPaineCompleteApp = () => {
     // Main Content
     React.createElement('main', {
       key: 'main-content',
-      className: "p-4 pb-20"
+      className: "p-3 sm:p-4 pb-20 sm:pb-24"
     }, (() => {
       switch(activeView) {
         case 'dashboard':
@@ -1150,25 +1150,25 @@ const TorresPaineCompleteApp = () => {
             // Hero Stats
             React.createElement('div', {
               key: 'hero-stats',
-              className: "bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+              className: "bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10"
             }, [
               React.createElement('div', {
                 key: 'hero-header',
-                className: "text-center mb-6"
+                className: "text-center mb-4 sm:mb-6"
               }, [
                 React.createElement('h1', {
                   key: 'app-title',
-                  className: "text-3xl font-bold text-white mb-2"
+                  className: "text-2xl sm:text-3xl font-bold text-white mb-2"
                 }, 'Torres del Paine'),
                 React.createElement('p', {
                   key: 'app-subtitle',
-                  className: "text-blue-200"
+                  className: "text-sm sm:text-base text-blue-200"
                 }, 'Circuito O - Guía Completa 2025')
               ]),
-              
+
               React.createElement('div', {
                 key: 'stats-grid',
-                className: "grid grid-cols-2 md:grid-cols-4 gap-4"
+                className: "grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4"
               }, [
                 React.createElement('div', {
                   key: 'distance',
@@ -1288,18 +1288,18 @@ const TorresPaineCompleteApp = () => {
           }, [
             React.createElement('div', {
               key: 'map-container',
-              className: "bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10"
+              className: "bg-white/5 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/10"
             }, [
               React.createElement('h2', {
                 key: 'map-title',
-                className: "text-2xl font-bold text-white mb-4"
+                className: "text-xl sm:text-2xl font-bold text-white mb-4"
               }, '🗺️ Mapa Interactivo del Circuito'),
               React.createElement(InteractiveMap, { key: 'interactive-map' }),
-              
+
               // Day selector
               React.createElement('div', {
                 key: 'day-selector',
-                className: "grid grid-cols-4 md:grid-cols-8 gap-2 mt-6"
+                className: "grid grid-cols-4 sm:grid-cols-8 gap-2 mt-4 sm:mt-6"
               }, circuitDays.map(day =>
                 React.createElement('button', {
                   key: day.day,
@@ -1354,9 +1354,9 @@ const TorresPaineCompleteApp = () => {
         setEmergencyMode(!emergencyMode);
         if (window.hapticFeedback) window.hapticFeedback('heavy');
       },
-      className: "fixed bottom-20 right-4 z-50 w-16 h-16 bg-red-600 rounded-full shadow-lg border-2 border-red-500 hover:bg-red-500 transition-all duration-300"
+      className: "fixed bottom-20 sm:bottom-24 right-3 sm:right-4 z-50 w-14 h-14 sm:w-16 sm:h-16 bg-red-600 rounded-full shadow-lg border-2 border-red-500 hover:bg-red-500 transition-all duration-300 flex items-center justify-center"
     }, React.createElement(AlertTriangle, {
-      className: "w-8 h-8 text-white mx-auto"
+      className: "w-7 h-7 sm:w-8 sm:h-8 text-white"
     }))
   ]);
 };
