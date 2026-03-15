@@ -64,7 +64,7 @@
     <title>Torres del Paine - Planning Assistant</title>
     
     <style>
-        /* Custom CSS para optimizaciones móviles Samsung S24 */
+        /* Custom CSS para optimizaciones móviles - Compatible con todos los dispositivos */
         * {
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
@@ -74,7 +74,7 @@
             user-select: none;
             box-sizing: border-box;
         }
-        
+
         html, body {
             margin: 0;
             padding: 0;
@@ -85,6 +85,8 @@
             min-height: 100vh;
             min-height: 100dvh; /* Dynamic viewport height para móviles */
             color: white;
+            width: 100%;
+            max-width: 100vw;
         }
         
         /* Samsung Galaxy S24 Optimizaciones */
@@ -209,6 +211,124 @@
         /* High contrast for AMOLED */
         .high-contrast {
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Optimizaciones adicionales para móviles pequeños */
+        @media (max-width: 640px) {
+            /* Textos más legibles en pantallas pequeñas */
+            h1 { font-size: 1.875rem !important; }
+            h2 { font-size: 1.5rem !important; }
+            h3 { font-size: 1.25rem !important; }
+
+            /* Padding reducido para maximizar espacio */
+            .mobile-padding-sm {
+                padding: 0.75rem !important;
+            }
+
+            /* Grids adaptativos para móviles */
+            .mobile-grid-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            }
+
+            .mobile-grid-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+
+            /* Botones más grandes para touch */
+            button {
+                min-height: 48px !important;
+                padding: 0.75rem 1rem !important;
+            }
+
+            /* Navegación más grande */
+            nav button {
+                min-width: 60px !important;
+                padding: 0.5rem !important;
+            }
+
+            /* Optimizar mapas y gráficos */
+            .map-container {
+                height: 250px !important;
+            }
+        }
+
+        /* Para pantallas muy pequeñas (< 375px) */
+        @media (max-width: 375px) {
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 1.25rem !important; }
+
+            /* Espaciado aún más compacto */
+            .mobile-compact {
+                padding: 0.5rem !important;
+                margin: 0.5rem 0 !important;
+            }
+        }
+
+        /* Landscape mode en móviles */
+        @media (max-height: 500px) and (orientation: landscape) {
+            /* Reducir padding vertical en landscape */
+            .landscape-compact {
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+
+            nav {
+                padding-top: 0.25rem !important;
+                padding-bottom: 0.25rem !important;
+            }
+        }
+
+        /* Mejoras para gestos táctiles */
+        @media (hover: none) and (pointer: coarse) {
+            /* Área de toque más grande en dispositivos táctiles */
+            button, a, input, select {
+                min-height: 48px;
+                min-width: 48px;
+            }
+
+            /* Scroll más suave en táctil */
+            * {
+                scroll-behavior: smooth;
+            }
+        }
+
+        /* Prevenir scroll horizontal en todas las pantallas */
+        body, html, #root {
+            overflow-x: hidden !important;
+            max-width: 100% !important;
+        }
+
+        /* Imágenes responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Contenedores responsive */
+        .responsive-container {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Fix para inputs en iOS */
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select,
+        textarea {
+            font-size: 16px !important;
+            -webkit-appearance: none;
+            border-radius: 8px;
+        }
+
+        /* Mejorar legibilidad en pantallas pequeñas */
+        @media (max-width: 640px) {
+            .text-responsive {
+                font-size: 0.875rem !important;
+                line-height: 1.5 !important;
+            }
         }
     </style>
 </head>
